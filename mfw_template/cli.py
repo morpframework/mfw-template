@@ -3,7 +3,7 @@ import sys
 import click
 import importscan
 import mfw_template
-
+import yaml
 
 @click.group()
 @click.pass_context
