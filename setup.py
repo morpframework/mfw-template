@@ -1,9 +1,9 @@
 from setuptools import setup, find_packages
 import sys, os
 
-version = '0.1'
+version = '0.1b1'
 
-setup(name='mfw_template',
+setup(name='mfw-template',
       version=version,
       description="Cookiecutter templates for Morp Framework",
       long_description="""\
