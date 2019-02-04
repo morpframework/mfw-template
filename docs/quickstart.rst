@@ -2,13 +2,20 @@
 Quickstart Tutorial
 ====================
 
-Creating a new project
+Installation:
+
+.. code-block:: bash
+
+   pip install mfw-template
+
+
+Creating a new project:
 
 .. code-block:: bash
 
    mfw-template create-project
 
-Adding new resource type
+Adding new resource type into project:
 
 .. code-block:: bash
 
