@@ -2,6 +2,7 @@ import os
 import sys
 import click
 import importscan
+import mfw_template
 
 
 @click.group()
@@ -19,5 +20,5 @@ def project(ctx=None):
 
 
 def cli():
-    importscan.scan('mfw_template')
+    importscan.scan(mfw_template)
     project()

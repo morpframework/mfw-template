@@ -21,6 +21,7 @@ setup(name='mfw_template',
           'cookiecutter',
           'click',
           'importscan',
+          'pyyaml>=4.2b1',
           # -*- Extra requirements: -*-
       ],
       entry_points={
