@@ -16,4 +16,7 @@ def create_project():
 def create_resource(ctx):
     project_name = ctx.obj['RC']['project_name']
     cookiecutter(resource_filename('mfw_template', 'templates/resource'),
-                 output_dir=project_name)
+                 extra_context={
+        'project_name': project_name,
+        'project_type': ctx.obj['RC']['project_type']},
+        output_dir=project_name)

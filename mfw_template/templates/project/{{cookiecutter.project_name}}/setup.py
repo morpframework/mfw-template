@@ -21,7 +21,10 @@ setup(name='{{ cookiecutter.project_name }}',
       python_requires=">=3.7",
       install_requires=[
           # -*- Extra requirements: -*-
-          'morpfw>=0.2.1rc3',
+          'morpfw>=0.2.1rc4',
+          # {% if cookiecutter.project_type == "morpcc" %}
+          'morpcc>=0.1.0a3'
+          # {% endif %}
       ],
       extras_require={
           'test': [

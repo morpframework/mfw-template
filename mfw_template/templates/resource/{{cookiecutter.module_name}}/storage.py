@@ -7,7 +7,7 @@ from .model import {{cookiecutter.type_name}}Model
 
 class {{cookiecutter.type_name}}(morpfw.sql.Base):
 
-    __tablename__ = 'resource_{{cookiecutter.module_name}}'
+    __tablename__ = '{{cookiecutter.project_name}}_{{cookiecutter.module_name}}'
 
     title = sa.Column(sa.String(length=1024))
     description = sa.Column(sa.Text())

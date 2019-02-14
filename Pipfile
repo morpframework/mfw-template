@@ -4,6 +4,10 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
+pydocstyle = "*"
+pylint = "*"
+mypy = "*"
+autopep8 = "*"
 
 [packages]
 mfw-template = {path = ".",editable = true}
