@@ -24,6 +24,6 @@ def get_typeinfo(request):
         'collection_ui': {{cookiecutter.type_name}}CollectionUI,
         'collection_ui_factory': get_collection_ui,
         'model_ui': {{cookiecutter.type_name}}ModelUI,
-        'model_ui_factory': {{cookiecutter.type_name}}ModelUI,
+        'model_ui_factory': get_model_ui,
         # {% endif %}
     }
