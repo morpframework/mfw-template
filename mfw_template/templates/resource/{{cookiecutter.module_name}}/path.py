@@ -40,7 +40,7 @@ def _get_collection_ui(request):
     return get_collection_ui(request)
 
 
-def get_model_ui(request):
+def get_model_ui(request, identifier):
     col = get_collection(request)
     model = get_model(request, identifier)
     return {{cookiecutter.type_name}}ModelUI(
