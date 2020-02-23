@@ -20,3 +20,27 @@ def create_resource(ctx):
         'project_name': project_name,
         'project_type': ctx.obj['RC']['project_type']},
         output_dir=project_name)
+
+
+@project.command(help='create a new Application Behavior')
+@click.pass_context
+def create_applicationbehavior(ctx):
+    project_name = ctx.obj['RC']['project_name']
+    cookiecutter(resource_filename('mfw_template',
+        'templates/applicationbehavior'),
+                 extra_context={
+        'project_name': project_name,
+        'project_type': ctx.obj['RC']['project_type']},
+        output_dir=project_name)
+
+
+@project.command(help='create a new Entity Behavior')
+@click.pass_context
+def create_behavior(ctx):
+    project_name = ctx.obj['RC']['project_name']
+    cookiecutter(resource_filename('mfw_template',
+        'templates/behavior'),
+                 extra_context={
+        'project_name': project_name,
+        'project_type': ctx.obj['RC']['project_type']},
+        output_dir=project_name)

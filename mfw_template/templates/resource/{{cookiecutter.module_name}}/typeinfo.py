@@ -10,7 +10,9 @@ from .path import get_collection_ui, get_model_ui
 # {% endif %}
 
 
-@App.typeinfo(name='{{ cookiecutter.project_name }}.{{ cookiecutter.module_name }}')
+@App.typeinfo(
+    name='{{ cookiecutter.project_name }}.{{ cookiecutter.module_name }}',
+    schema={{cookiecutter.type_name}}Schema)
 def get_typeinfo(request):
     return {
         'title': '{{ cookiecutter.type_name }}',
