@@ -6,7 +6,6 @@ from .path import get_collection, get_model
 # {% if cookiecutter.project_type == "morpcc" %}
 from .modelui import {{cookiecutter.type_name}}CollectionUI
 from .modelui import {{cookiecutter.type_name}}ModelUI
-from .path import get_collection_ui, get_model_ui
 # {% endif %}
 
 
@@ -24,8 +23,6 @@ def get_typeinfo(request):
         'model_factory': get_model,
         # {% if cookiecutter.project_type == "morpcc" %}
         'collection_ui': {{cookiecutter.type_name}}CollectionUI,
-        'collection_ui_factory': get_collection_ui,
         'model_ui': {{cookiecutter.type_name}}ModelUI,
-        'model_ui_factory': get_model_ui,
         # {% endif %}
     }

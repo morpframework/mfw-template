@@ -30,25 +30,18 @@ def _get_model(request, identifier):
 # {% if cookiecutter.project_type == "morpcc" %}
 
 
-def get_collection_ui(request):
-    col = get_collection(request)
-    return {{cookiecutter.type_name}}CollectionUI(request, col)
-
 @App.path(model={{cookiecutter.type_name}}CollectionUI,
           path='{{ cookiecutter.ui_mount_path }}')
 def _get_collection_ui(request):
-    return get_collection_ui(request)
+    collection = get_collection(request)
+    return collection.ui()
 
-
-def get_model_ui(request, identifier):
-    col = get_collection(request)
-    model = get_model(request, identifier)
-    return {{cookiecutter.type_name}}ModelUI(
-        request, model,
-        {{cookiecutter.type_name}}CollectionUI(request, col))
 
 @App.path(model={{cookiecutter.type_name}}ModelUI,
           path='{{ cookiecutter.ui_mount_path }}/{identifier}')
 def _get_model_ui(request, identifier):
-    return get_model_ui(request, identifier)
+    model = get_model(request, identifier)
+    if model:
+        return model.ui()
+
 # {% endif %}
