@@ -44,3 +44,27 @@ def create_behavior(ctx):
         'project_name': project_name,
         'project_type': ctx.obj['RC']['project_type']},
         output_dir=project_name)
+
+
+@project.command(help='create a new Field Validator')
+@click.pass_context
+def create_fieldvalidator(ctx):
+    project_name = ctx.obj['RC']['project_name']
+    cookiecutter(resource_filename('mfw_template',
+        'templates/fieldvalidator'),
+                 extra_context={
+        'project_name': project_name,
+        'project_type': ctx.obj['RC']['project_type']},
+        output_dir=project_name)
+
+
+@project.command(help='create a new Form Validator')
+@click.pass_context
+def create_formvalidator(ctx):
+    project_name = ctx.obj['RC']['project_name']
+    cookiecutter(resource_filename('mfw_template',
+        'templates/formvalidator'),
+                 extra_context={
+        'project_name': project_name,
+        'project_type': ctx.obj['RC']['project_type']},
+        output_dir=project_name)

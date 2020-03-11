@@ -1,5 +1,5 @@
 {
-    "behavior_name": "MyAppBehavior",
+    "behavior_name": "MyBehavior",
     "module_name": "{{ cookiecutter.behavior_name.lower() }}",
     "project_name": "",
     "project_type": ""
