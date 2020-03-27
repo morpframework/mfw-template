@@ -28,13 +28,6 @@ def get_approot(request):
     return AppRoot(request)
 
 
-@App.json(model=AppRoot, permission=crudperm.View)
-def index(context, request):
-    return {
-        'message': 'Hello World'
-    }
-
-
 @App.permission_rule(model=AppRoot, permission=crudperm.View)
 def allow_view(identity, context, permission):
     return True
