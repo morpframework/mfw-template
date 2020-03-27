@@ -3,28 +3,27 @@ server:
   listen_port: 5000
   server_url: http://localhost:5000
 
-morpfw:
-  scan:
+configuration:
+  morpfw.scan:
     - {{ cookiecutter.project_name }}
+{% if cookiecutter.project_type == "morpfw" %} 
+  morpfw.authn.policy: morpfw.authn.useridparam:AuthnPolicy
+{% elif cookiecutter.project_type == "morpcc" %} 
+  morpfw.authn.policy: morpcc.app:AuthnPolicy
+{% endif %}
+  morpfw.storage.sqlstorage.dburi: 'postgresql://postgres:postgres@localhost:5432/{{ cookiecutter.project_name }}'
+  morpfw.storage.sqlstorage.dburi.warehouse: 'postgresql://postgres:postgres@localhost:5432/{{ cookiecutter.project_name }}_warehouse'
+  morpfw.secret.fernet_key: {{ cookiecutter.fernet_key }}
+{% if cookiecutter.project_type == "morpcc" %} 
+  morpcc.beaker.session.type: ext:database
+  morpcc.beaker.session.url: 'postgresql://postgres:postgres@localhost:5432/{{ cookiecutter.project_name }}_cache'
+{% endif %}
 
 application:
   title: {{ cookiecutter.project_name }}
-  app: {{ cookiecutter.project_name }}.app:App
-  dburi: 'sqlite:///%(here)s/app.db'
-  fsblobstorage_path: '%(here)s/blobstorage'
-  {% if cookiecutter.project_type == "morpfw" %} 
-  authn_policy: morpfw.authn.useridparam:AuthnPolicy
-  {% elif cookiecutter.project_type == "morpcc" %} 
-  authn_policy: morpcc.app:AuthnPolicy
-  {% endif %}
-  
-security:
-  jwt:
-    master_secret: secret
-
+  class: {{ cookiecutter.project_name }}.app:App
 {% if cookiecutter.project_type == "morpcc" %} 
- 
-beaker_session:
-  session.cookie_expires: True
+  factory: morpcc.app:create_morpcc_app
 {% endif %}
-
+  fsblobstorage_path: '%(here)s/blobstorage'
+  development_mode: true

@@ -4,11 +4,14 @@ import click
 from pkg_resources import resource_filename
 import os
 import yaml
-
+from cryptography.fernet import Fernet
 
 @project.command(help='create a new MorpFW project')
 def create_project():
-    cookiecutter(resource_filename('mfw_template', 'templates/project'))
+    cookiecutter(resource_filename('mfw_template', 'templates/project'),
+            extra_context={
+                'fernet_key': Fernet.generate_key().decode('utf-8')
+            })
 
 
 @project.command(help='create a new resource type')
