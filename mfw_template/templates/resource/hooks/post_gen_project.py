@@ -7,3 +7,6 @@ module_name = '{{ cookiecutter.module_name }}'
 
 if project_type != 'morpcc':
     os.unlink('modelui.py')
+
+if project_type == 'morpcc':
+    os.unlink('permission_rule.py')

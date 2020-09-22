@@ -11,8 +11,10 @@ configuration:
 {% elif cookiecutter.project_type == "morpcc" %} 
   morpfw.authn.policy: morpcc.app:AuthnPolicy
 {% endif %}
+
   morpfw.storage.sqlstorage.dburi: 'postgresql://postgres:postgres@localhost:5432/{{ cookiecutter.project_name }}'
   morpfw.storage.sqlstorage.dburi.warehouse: 'postgresql://postgres:postgres@localhost:5432/{{ cookiecutter.project_name }}_warehouse'
+  morpfw.blobstorage.uri: 'fsblob://%(here)s/blobstorage'
   morpfw.secret.fernet_key: {{ cookiecutter.fernet_key }}
 {% if cookiecutter.project_type == "morpcc" %} 
   morpcc.beaker.session.type: ext:database
@@ -25,5 +27,4 @@ application:
 {% if cookiecutter.project_type == "morpcc" %} 
   factory: morpcc.app:create_morpcc_app
 {% endif %}
-  fsblobstorage_path: '%(here)s/blobstorage'
   development_mode: true
