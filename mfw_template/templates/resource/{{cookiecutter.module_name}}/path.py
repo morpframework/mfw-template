@@ -7,7 +7,7 @@ from .storage import {{cookiecutter.type_name}}Storage
 
 
 def get_collection(request):
-    storage = {{cookiecutter.type_name}}Storage(request)
+    storage = request.app.get_storage({{cookiecutter.type_name}}Model, request)
     return {{cookiecutter.type_name}}Collection(request, storage)
 
 

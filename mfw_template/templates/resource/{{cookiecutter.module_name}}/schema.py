@@ -1,5 +1,5 @@
 import morpfw
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 import typing
 
 

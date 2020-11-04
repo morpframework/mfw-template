@@ -14,16 +14,3 @@ def allow_collection_access(identity, model, permission):
 def allow_model_access(identity, model, permission):
     return True
 
-# {% if cookiecutter.project_type == "morpcc" %}
-
-@App.permission_rule(model={{cookiecutter.type_name}}CollectionUI,
-                     permission=crudperm.All)
-def allow_collection_ui_access(identity, model, permission):
-    return True
-
-@App.permission_rule(model={{cookiecutter.type_name}}ModelUI,
-                     permission=crudperm.All)
-def allow_model_ui_access(identity, model, permission):
-    return True
-
-# {% endif %}
