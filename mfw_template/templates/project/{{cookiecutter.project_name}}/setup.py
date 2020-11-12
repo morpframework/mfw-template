@@ -4,11 +4,17 @@ import os
 
 version = '{{ cookiecutter.version }}'
 
+def readfile(name):
+    with open(os.path.join(os.path.dirname(__file__), name)) as f:
+        out = f.read()
+    return out
+
+desc = '\n\n'.join([readfile('README.rst'), readfile('CHANGELOG.rst')])
+
 setup(name='{{ cookiecutter.project_name }}',
       version=version,
       description="{{ cookiecutter.short_description }}",
-      long_description="""\
-      """,
+      long_description=desc,
       classifiers=[],  # Get strings from http://pypi.python.org/pypi?%3Aaction=list_classifiers
       keywords='',
       author='{{ cookiecutter.author_name }}',
