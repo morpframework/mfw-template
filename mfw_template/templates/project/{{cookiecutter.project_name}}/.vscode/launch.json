@@ -8,7 +8,7 @@
             "name": "Python: {{cookiecutter.project_name}}",
             "type": "python",
             "request": "launch",
-            "pythonPath": "${workspaceFolder}/bin/python",
+            "pythonPath": "${workspaceFolder}/venv/bin/python",
             "module": "morpfw.cli",
             "console": "internalConsole",
             "internalConsoleOptions": "openOnSessionStart",

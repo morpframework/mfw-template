@@ -11,6 +11,7 @@ Create Date: ${create_date}
 from alembic import op
 import sqlalchemy as sa
 import morpfw.crud.storage.sqlstorage
+import sqlalchemy_utils.types
 import sqlalchemy_jsonfield.jsonfield
 ${imports if imports else ""}
 

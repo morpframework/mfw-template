@@ -158,6 +158,7 @@
             },
             "options": {
                 "cwd": "${workspaceRoot}"
+            }
         }
     ],
     "inputs": [

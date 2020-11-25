@@ -1,10 +1,12 @@
-# {% if cookiecutter.project_type == "morpfw" %}
-# {% elif cookiecutter.project_type == "morpcc" %}
-import morpcc
-import morpcc.permission as ccperm
 import morpfw
 from morpfw.authz.pas import DefaultAuthzPolicy
 from morpfw.crud import permission as crudperm
+
+# {% if cookiecutter.project_type == "morpfw" %}
+
+# {% elif cookiecutter.project_type == "morpcc" %}
+import morpcc
+import morpcc.permission as ccperm
 
 # {% endif %}
 
@@ -29,8 +31,8 @@ def get_approot(request):
     return AppRoot(request)
 
 
-@App.permission_rule(model=AppRoot, permission=crudperm.View)
-def allow_view(identity, context, permission):
+@App.permission_rule(model=AppRoot, permission=crudperm.All)
+def allow_all(identity, context, permission):
     """ Default permission rule, allow all """
     return True
 
