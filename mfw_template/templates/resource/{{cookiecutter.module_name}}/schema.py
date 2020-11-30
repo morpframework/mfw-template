@@ -1,7 +1,13 @@
 import morpfw
 from dataclasses import dataclass, field
 import typing
-
+# {% if cookiecutter.project_type == "morpcc" %}
+from morpcc.deform.referencewidget import ReferenceWidget
+from morpcc.deform.vocabularywidget import VocabularyWidget
+from morpcc.validator.reference import ReferenceValidator
+from morpcc.validator.vocabulary import VocabularyValidator
+# {% endif %}
+from morpfw.validator.field import valid_identifier
 
 @dataclass
 class {{ cookiecutter.type_name }}Schema(morpfw.Schema):
