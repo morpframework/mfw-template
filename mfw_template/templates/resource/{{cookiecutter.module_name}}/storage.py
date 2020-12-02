@@ -1,6 +1,7 @@
 import morpfw
 import morpfw.sql
 import sqlalchemy as sa
+import sqlalchemy_utils as sautils
 import sqlalchemy_jsonfield as sajson
 
 from ..app import App
