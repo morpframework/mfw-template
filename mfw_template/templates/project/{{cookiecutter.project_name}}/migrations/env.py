@@ -82,6 +82,7 @@ def run_migrations_offline():
                 url=rec["url"],
                 output_buffer=buffer,
                 target_metadata=target_metadata.get(name),
+                compare_type=True,
                 literal_binds=True,
                 dialect_opts={"paramstyle": "named"},
             )
@@ -125,6 +126,7 @@ def run_migrations_online():
                 connection=rec["connection"],
                 upgrade_token="%s_upgrades" % name,
                 downgrade_token="%s_downgrades" % name,
+                compare_type=True,
                 target_metadata=target_metadata.get(name),
             )
             context.run_migrations(engine_name=name)
