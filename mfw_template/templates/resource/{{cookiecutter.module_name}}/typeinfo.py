@@ -16,6 +16,7 @@ def get_typeinfo(request):
     return {
         'title': '{{ cookiecutter.type_name }}',
         'description': '{{ cookiecutter.type_description }}',
+        'icon': 'database',
         'schema': {{cookiecutter.type_name}}Schema,
         'collection': {{cookiecutter.type_name}}Collection,
         'collection_factory': get_collection,
@@ -25,4 +26,5 @@ def get_typeinfo(request):
         'collection_ui': {{cookiecutter.type_name}}CollectionUI,
         'model_ui': {{cookiecutter.type_name}}ModelUI,
         # {% endif %}
+        'internal': False
     }
