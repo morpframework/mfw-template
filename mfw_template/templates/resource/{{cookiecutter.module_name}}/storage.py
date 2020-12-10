@@ -21,3 +21,8 @@ class {{cookiecutter.type_name}}Storage(morpfw.SQLStorage):
 @App.storage(model={{cookiecutter.type_name}}Model)
 def get_storage(model, request, blobstorage):
     return {{cookiecutter.type_name}}Storage(request, blobstorage=blobstorage)
+
+
+@App.blobstorage(model={{cookiecutter.type_name}}Model)
+def get_blobstorage(model, request):
+    return request.app.get_config_blobstorage(request)
