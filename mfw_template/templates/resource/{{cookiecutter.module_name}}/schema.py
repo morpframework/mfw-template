@@ -12,5 +12,6 @@ from morpfw.validator.field import valid_identifier
 @dataclass
 class {{ cookiecutter.type_name }}Schema(morpfw.Schema):
 
-    title: typing.Optional[str] = None
+    title: typing.Optional[str] = field(default=None, 
+                                        metadata={'required': True})
     description: typing.Optional[str] = None
