@@ -17,11 +17,14 @@ from ..cli import app, require_config, to_identifier
 def create_resource(ctx, name):
     conf = ctx.obj["RC"].copy()
     conf["type_name"] = name
+    proj_name = conf['project_name']
     module_name = to_identifier(name)
     module_name = click.prompt("Module Name", default=module_name)
     type_desc = click.prompt("Type Description", default="%s type" % name)
-    api_mount_path = click.prompt("API Mount Path", default="/api/v1/%s" % module_name)
-    ui_mount_path = click.prompt("UI Mount Path", default="/%s" % module_name)
+    api_mount_path = click.prompt("API Mount Path", 
+            default="/api/v1/%s.%s" % (proj_name, module_name))
+    ui_mount_path = click.prompt("UI Mount Path", 
+            default="/%s.%s" % (proj_name, module_name))
 
     conf.update(
         {
