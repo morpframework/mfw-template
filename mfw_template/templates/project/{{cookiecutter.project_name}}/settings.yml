@@ -15,11 +15,19 @@ configuration:
   morpfw.storage.sqlstorage.dburi: 'postgresql://postgres:postgres@localhost:5432/{{ cookiecutter.project_name }}'
   morpfw.storage.sqlstorage.dburi.warehouse: 'postgresql://postgres:postgres@localhost:5432/{{ cookiecutter.project_name }}_warehouse'
   morpfw.blobstorage.uri: 'fsblob://%(here)s/blobstorage'
+  # generate new key using 
+  # from cryptography.fernet import Fernet
+  # print(Fernet.generate_key().decode('utf8'))
   morpfw.secret.fernet_key: {{ cookiecutter.fernet_key }}
 {% if cookiecutter.project_type == "morpcc" %} 
   morpcc.beaker.session.type: ext:database
   morpcc.beaker.session.url: 'postgresql://postgres:postgres@localhost:5432/{{ cookiecutter.project_name }}_cache'
 {% endif %}
+
+  morpfw.celery:
+    # celery settings variables
+    broker_url: 'amqp://guest:guest@localhost:5672/'
+    result_backend: 'db+postgresql://postgres@localhost:5432/{{ cookiecutter.project_name }}_cache'
 
 application:
   title: {{ cookiecutter.project_name }}

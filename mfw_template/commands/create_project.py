@@ -8,7 +8,7 @@ from click.termui import prompt
 from cookiecutter.main import cookiecutter
 from cryptography.fernet import Fernet
 from pkg_resources import resource_filename
-
+from datetime import datetime
 from ..cli import app, cli, validate_name
 
 
@@ -53,6 +53,8 @@ git_conf = get_git_config()
     prompt="License",
 )
 def create_project(name, type, url, author, author_email, license):
+    now = datetime.now()
+    rpm_date = now.strftime('%a %b %d %Y')
     cookiecutter(
         resource_filename("mfw_template", "templates/project"),
         extra_context={
@@ -63,6 +65,7 @@ def create_project(name, type, url, author, author_email, license):
             "author_name": author,
             "author_email": author_email,
             "fernet_key": Fernet.generate_key().decode("utf-8"),
+            "rpm_date": rpm_date,
         },
         no_input=True,
     )
