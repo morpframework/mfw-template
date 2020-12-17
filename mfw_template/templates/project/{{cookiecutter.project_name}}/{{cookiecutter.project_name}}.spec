@@ -1,4 +1,3 @@
-%global __os_install_post %(echo '%{__os_install_post}' | sed -e %'s!/usr/lib[^[:space:]]*/brp-python-bytecompile[[:space:]].*$!!g')
 %define debug_package %{nil}
 %define _build_id_links none
 %define service_user {{ cookiecutter.project_name }}
@@ -17,9 +16,10 @@ Source9:    worker.service
 Source10:   scheduler.service
 Source12:   settings.yml
 Source13:   logrotate.conf
-
-BuildRequires:    python3 python3-devel python3-virtualenv 
-Requires: python3 python3-devel
+BuildRequires:  python(abi) >= 3.7
+BuildRequires: pkgconfig(python) >= 3.7
+Requires: python(abi) >= 3.7
+Requires: pkgconfig(python) >= 3.7
 
 BuildRequires:    postgresql-devel
 Requires:   postgresql-libs postgresql 
@@ -52,7 +52,7 @@ mkdir -p ${RPM_BUILD_ROOT}/usr/lib/systemd/system/
 
 # settings file
 cp %{SOURCE12} ${RPM_BUILD_ROOT}/etc/%{name}/settings.yml
-sed -i "s|fsblob://%(here)s/blobstorage|fsblob:///var/lib/%{name}/blobstorage|g" ${RPM_BUILD_ROOT}/etc/%{name}/settings.yml
+sed -i "s|fsblob://\%(here)s/blobstorage|fsblob:///var/lib/%{name}/blobstorage|g" ${RPM_BUILD_ROOT}/etc/%{name}/settings.yml
 
 # logrotate config
 cp %{SOURCE13} ${RPM_BUILD_ROOT}/etc/logrotate.d/%{name}
