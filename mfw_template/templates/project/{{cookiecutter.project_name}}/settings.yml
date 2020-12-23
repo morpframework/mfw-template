@@ -19,10 +19,10 @@ configuration:
   # from cryptography.fernet import Fernet
   # print(Fernet.generate_key().decode('utf8'))
   morpfw.secret.fernet_key: {{ cookiecutter.fernet_key }}
-{% if cookiecutter.project_type == "morpcc" %} 
-  morpcc.beaker.session.type: ext:database
-  morpcc.beaker.session.url: 'postgresql://postgres:postgres@localhost:5432/{{ cookiecutter.project_name }}_cache'
-{% endif %}
+  morpfw.beaker.session.type: ext:database
+  morpfw.beaker.session.url: 'postgresql://postgres:postgres@localhost:5432/{{ cookiecutter.project_name }}_cache'
+  morpfw.beaker.cache.type: ext:database
+  morpfw.beaker.cache.url: 'postgresql://postgres:postgres@localhost:5432/{{ cookiecutter.project_name }}_cache'
 
   morpfw.celery:
     # celery settings variables
