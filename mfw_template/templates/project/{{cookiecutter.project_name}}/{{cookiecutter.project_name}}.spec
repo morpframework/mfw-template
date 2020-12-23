@@ -103,5 +103,5 @@ rm -rf $RPM_BUILD_ROOT
 
 %changelog
 
-* {{ cookiecutter.rpm_date }} {{ cookiecutter.author }} {{ cookiecutter.version }}
+* {{ cookiecutter.rpm_date }} {{ cookiecutter.author_name }} {{ cookiecutter.version }}
 - initial package
