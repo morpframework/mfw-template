@@ -1,6 +1,10 @@
 import morpfw
 from dataclasses import dataclass, field
+from datetime import date, datetime
+
 import typing
+import pytz
+
 # {% if cookiecutter.project_type == "morpcc" %}
 from morpcc.deform.referencewidget import ReferenceWidget
 from morpcc.deform.vocabularywidget import VocabularyWidget
@@ -14,4 +18,5 @@ class {{ cookiecutter.type_name }}Schema(morpfw.Schema):
 
     title: typing.Optional[str] = field(default=None, 
                                         metadata={'required': True})
-    description: typing.Optional[str] = None
+    description: typing.Optional[str] = field(default=None,
+                                        metadata={'format': 'text'})
