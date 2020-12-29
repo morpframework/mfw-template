@@ -49,7 +49,7 @@ git_conf = get_git_config()
 )
 @click.option(
     "--license",
-    type=click.Choice(["MIT", "AGPLv3+", "Proprietary"], case_sensitive=False),
+    type=click.Choice(["Apache2", "GPLv3+", "AGPLv3+", "Proprietary"], case_sensitive=False),
     prompt="License",
 )
 def create_project(name, type, url, author, author_email, license):
