@@ -3,14 +3,20 @@ import sys
 
 from setuptools import find_packages, setup
 
-version = "0.2rc1"
+version = "0.3.dev0"
+
+def readfile(name):
+    with open(os.path.join(os.path.dirname(__file__), name)) as f:
+        out = f.read()
+    return out
+
+desc = '\n'.join([readfile('README.rst'), readfile('CHANGELOG.rst')])
 
 setup(
     name="mfw-template",
     version=version,
     description="Cookiecutter templates for Morp Framework",
-    long_description="""\
-""",
+    long_description=desc,
     classifiers=[],  # Get strings from http://pypi.python.org/pypi?%3Aaction=list_classifiers
     keywords="",
     author="Izhar Firdaus",
