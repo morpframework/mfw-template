@@ -27,6 +27,11 @@ setup(
         "pyyaml>=4.2b1",
         # -*- Extra requirements: -*-
     ],
+    extras_require={
+        "docs": [
+            'sphinx-click'
+        ]
+    },
     entry_points={
         "console_scripts": [
             "mfw-template=mfw_template.cli:cli",
