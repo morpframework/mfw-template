@@ -25,6 +25,7 @@ setup(
         "click>=7.1.2",
         "importscan",
         "pyyaml>=4.2b1",
+        "cryptography",
         # -*- Extra requirements: -*-
     ],
     extras_require={
