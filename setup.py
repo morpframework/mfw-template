@@ -3,7 +3,7 @@ import sys
 
 from setuptools import find_packages, setup
 
-version = "0.3b2.dev0"
+version = "0.3b2"
 
 def readfile(name):
     with open(os.path.join(os.path.dirname(__file__), name)) as f:
