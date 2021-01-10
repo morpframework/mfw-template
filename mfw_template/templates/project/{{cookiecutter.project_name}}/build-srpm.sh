@@ -19,7 +19,7 @@ mkdir -p RPMS SRPMS
 cp etc/* $TMPDIR
 cp settings.yml $TMPDIR
 
-rpmbuild -ba $PROJECT.spec --define "_sourcedir $TMPDIR" \
+rpmbuild -bs $PROJECT.spec --define "_sourcedir $TMPDIR" \
     --define="_rpmdir $BUILDOUT_DIR/RPMS" \
     --define="_srcrpmdir $BUILDOUT_DIR/SRPMS"
 

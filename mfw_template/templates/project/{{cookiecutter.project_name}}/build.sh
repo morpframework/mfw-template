@@ -25,7 +25,8 @@ fi
 
 if [ ! -f "./bin/buildout" ];then
     echo "Bootstrap Buildout"
-    ./venv/bin/python bootstrap-buildout.py
+    ./venv/bin/pip install zc.buildout
+    ./venv/bin/buildout bootstrap
 fi
 
 echo "Starting Build ..."

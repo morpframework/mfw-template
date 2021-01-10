@@ -11,6 +11,8 @@ import mfw_template
 
 def validate_name(ctx, param, value):
     for c in value:
+        if c in ['_']:
+            continue
         if not c.isalnum():
             raise click.BadParameter("Name need to be alphanumeric")
     if not value[0].isalpha():
