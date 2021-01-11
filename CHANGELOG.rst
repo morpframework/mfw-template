@@ -4,7 +4,7 @@ Changelog
 0.3b3 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- fix %(here)s replacement in rpm build
 
 
 0.3b2 (2021-01-10)
