@@ -52,7 +52,7 @@ mkdir -p ${RPM_BUILD_ROOT}/usr/lib/systemd/system/
 
 # settings file
 cp %{SOURCE12} ${RPM_BUILD_ROOT}/etc/%{name}/settings.yml
-sed -i "s|fsblob://\%(here)s/blobstorage|fsblob:///var/lib/%{name}/blobstorage|g" ${RPM_BUILD_ROOT}/etc/%{name}/settings.yml
+sed -i "s|fsblob://\%%(here)s/blobstorage|fsblob:///var/lib/%{name}/blobstorage|g" ${RPM_BUILD_ROOT}/etc/%{name}/settings.yml
 
 # logrotate config
 cp %{SOURCE13} ${RPM_BUILD_ROOT}/etc/logrotate.d/%{name}
