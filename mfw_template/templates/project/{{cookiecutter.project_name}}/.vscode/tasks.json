@@ -13,7 +13,7 @@
         {
             "label": "Generate migrations",
             "type": "shell",
-            "command": "./bin/alembic revision --autogenerate -m ${input:message}",
+            "command": "./bin/alembic revision --autogenerate -m '${input:message}'",
             "presentation": {
                 "echo": true,
                 "reveal": "always",
