@@ -5,7 +5,7 @@ Changelog
 ------------------
 
 - fix %(here)s replacement in rpm build
-
+- release bump to morpfw-0.4.0b4
 
 0.3b2 (2021-01-10)
 ------------------
