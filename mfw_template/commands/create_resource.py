@@ -22,7 +22,7 @@ def create_resource(ctx, name):
     module_name = click.prompt("Module Name", default=module_name)
     type_desc = click.prompt("Type Description", default="%s type" % name)
     api_mount_path = click.prompt("API Mount Path", 
-            default="/api/v1/%s.%s" % (proj_name, module_name))
+            default="/api/%s.%s" % (proj_name, module_name))
     ui_mount_path = click.prompt("UI Mount Path", 
             default="/%s.%s" % (proj_name, module_name))
 
