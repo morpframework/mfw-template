@@ -13,7 +13,6 @@ configuration:
 {% endif %}
 
   morpfw.storage.sqlstorage.dburi: 'postgresql://postgres:postgres@localhost:5432/{{ cookiecutter.project_name }}'
-  morpfw.storage.sqlstorage.dburi.warehouse: 'postgresql://postgres:postgres@localhost:5432/{{ cookiecutter.project_name }}_warehouse'
   morpfw.blobstorage.uri: 'fsblob://%(here)s/blobstorage'
   # generate new key using 
   # from cryptography.fernet import Fernet
