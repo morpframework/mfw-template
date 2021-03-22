@@ -1,18 +1,14 @@
 import logging
-from logging.config import fileConfig
 import re
+from logging.config import dictConfig
 
-from sqlalchemy import engine_from_config
-from sqlalchemy import pool
-
-from alembic import context
-
-from morpfw.crud.storage.sqlstorage import Base
-import morpcc.tests.democms
 import morepath
+import morpcc.tests.democms
+from alembic import context
+from morpfw.crud.storage.sqlstorage import Base
+from sqlalchemy import engine_from_config, pool
 
 morepath.autoscan()
-morepath.scan(morpcc.tests.democms)
 
 USE_TWOPHASE = False
 
@@ -22,7 +18,7 @@ config = context.config
 
 # Interpret the config file for Python logging.
 # This line sets up loggers basically.
-fileConfig(config.config_file_name)
+dictConfig(config.logging_config)
 logger = logging.getLogger("alembic.env")
 
 # gather section names referring to different
@@ -43,9 +39,7 @@ db_names = config.get_main_option("databases")
 # }
 
 
-target_metadata = {
-        'default': Base.metadata
-}
+target_metadata = {"default": Base.metadata}
 
 # other values from the config, defined by the needs of env.py,
 # can be acquired:
