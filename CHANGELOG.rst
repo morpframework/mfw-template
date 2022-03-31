@@ -4,7 +4,7 @@ Changelog
 0.3b4 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Release
 
 
 0.3b3 (2021-01-27)
